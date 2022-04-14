@@ -1,117 +1,106 @@
-import React from "react";
+import React, { useState, useEffect, useRef  } from 'react'
 
-function Slider() {
+
+
+const promoProduct = [
+    "/img/1.jpg",
+    "/img/2.jpg",
+    "/img/3.jpg",
+    "/img/4.jpg",
+];
+
+let count = 0;
+let slideInterval;
+
+
+
+
+function Slider(){
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const slideRef = useRef();
+    const removeAnimation = () => {
+        slideRef.current.classList.remove("fade-anim");
+    }
+    useEffect(() => {
+        slideRef.current.addEventListener
+        ('animationend', removeAnimation)
+        slideRef.current.addEventListener
+        ('mouseenter', pauseSlider)
+        slideRef.current.addEventListener
+        ('mouseleave', startSlider)
+            startSlider();
+      }, []);
+    
+      const startSlider = () => {
+        slideInterval = setInterval(() => {
+          handleOnNextClick();
+        }, 3000);
+      };
+    const pauseSlider = () => {
+        clearInterval(slideInterval)
+    }
+
+    
+    
+const handleOnNextClick = () => { 
+    count = (count + 1) % promoProduct.length;
+    setCurrentIndex(count)
+    slideRef.current.classList.add("fade-anim");
+};
+const handleOnPrevClick = () => { 
+    const promoProductLenght = promoProduct.length;
+    count = (currentIndex + promoProductLenght - 1) % promoProductLenght;
+    setCurrentIndex(count)
+    slideRef.current.classList.add("fade-anim");
+};
+
+
+
+
+
   return (
-    <div class="relative">
-      <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-        <div
-          class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
-          data-carousel-item=""
-        >
-          <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
-            First Slide
-          </span>
-          <img
-            src=""
-            class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-          />
-        </div>
+    <div class="flex justify-center">
+      <div ref={slideRef} class="relative select-none mt-24 justify-center">
+        <img src={promoProduct[currentIndex]} alt="" />
 
-        <div
-          class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10"
-          data-carousel-item=""
-        >
-          <img
-            src="/docs/images/carousel/carousel-2.svg"
-            class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-            alt="..."
-          />
-        </div>
-
-        <div
-          class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
-          data-carousel-item=""
-        >
-          <img
-            src="/docs/images/carousel/carousel-3.svg"
-            class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
-            alt="..."
-          />
+        <div class="absolute w-full top-1/2 transform -translate-y-1/2 flex justify-between items-start">
+          <button onClick={handleOnPrevClick}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path 
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button onClick={handleOnNextClick}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
-
-      <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-        <button
-          type="button"
-          class="w-3 h-3 rounded-full bg-white dark:bg-gray-800"
-          aria-current="true"
-          aria-label="Slide 1"
-          data-carousel-slide-to="0"
-        ></button>
-        <button
-          type="button"
-          class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-          aria-current="false"
-          aria-label="Slide 2"
-          data-carousel-slide-to="1"
-        ></button>
-        <button
-          type="button"
-          class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-          aria-current="false"
-          aria-label="Slide 3"
-          data-carousel-slide-to="2"
-        ></button>
-      </div>
-
-      <button
-        type="button"
-        class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
-        data-carousel-prev=""
-      >
-        <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg
-            class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            ></path>
-          </svg>
-          <span class="hidden">Previous</span>
-        </span>
-      </button>
-      <button
-        type="button"
-        class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
-        data-carousel-next=""
-      >
-        <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg
-            class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            ></path>
-          </svg>
-          <span class="hidden">Next</span>
-        </span>
-      </button>
     </div>
   );
 }
 
-export default Slider;
+export default Slider
