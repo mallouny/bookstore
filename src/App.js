@@ -1,10 +1,16 @@
 import React from "react";
+import Header from "./components/Header";
+import Products from "./components/Products";
+import Slider from "./components/Slider";
 
 function App() {
   return (
-      <h1 className="text-3xl font-bold underline text-blue-400">
-      Hello world!
-    </h1>
+   <div class="">
+    <Header/>
+    <Slider/>
+    <Products/>
+   </div> 
+   
   );
 }
 
