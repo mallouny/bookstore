@@ -1,11 +1,10 @@
-import React from "react";
-import Cart from "./Cart";
-import { Logo } from "./Logo";
-import { Navigation } from "./Navigation";
-import { Search } from "./Search";
-import { Toggler } from "./Toggler";
-import { FaBeer } from 'react-icons/fa';
+import React          from 'react';
 
+import Cart           from './Cart';
+import { Logo }       from './Logo';
+import { Navigation } from './Navigation';
+import { Search }     from './Search';
+import { Toggler }    from './Toggler';
 
 function Header() {
   return (
@@ -13,14 +12,14 @@ function Header() {
       <div className="w-full xl:hidden h-full absolute z-40">
         <div
           className="bg-gray-800 opacity-50 inset-0 fixed w-full h-full"
-          onclick="sidebarHandler(false)"
-        ></div>
+          onClick="sidebarHandler(false)"
+        />
       </div>
 
       <nav className="w-full mx-auto bg-white shadow">
         <div className="container px-6 justify-between h-16 flex items-center lg:items-stretch mx-auto">
           <div className="h-full flex items-center">
-            <Logo />         
+            <Logo />
             <Navigation />
           </div>
           <div className="h-full xl:flex items-center justify-end hidden">
@@ -31,7 +30,7 @@ function Header() {
           </div>
           <div className="visible xl:hidden flex items-center">
             <div>
-              <Toggler/>
+              <Toggler />
             </div>
           </div>
         </div>
