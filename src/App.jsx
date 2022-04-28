@@ -1,15 +1,11 @@
-import React    from 'react';
+import React       from 'react';
 
-import Header   from './components/Header';
-import Products from './components/Products';
-import Slider   from './components/Slider';
+import HomePage    from './pages/HomePage';
 
 function App() {
   return (
     <div>
-      <Header />
-      <Slider />
-      <Products />
+      <HomePage />
     </div>
 
   );

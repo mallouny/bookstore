@@ -1,10 +1,10 @@
 import React          from 'react';
 
-import Cart           from './Cart';
 import { Logo }       from './Logo';
-import { Navigation } from './Navigation';
-import { Search }     from './Search';
-import { Toggler }    from './Toggler';
+import Cart           from './navbar/Cart';
+import { Navigation } from './navbar/Navigation';
+import { Search }     from './navbar/Search';
+import { Toggler }    from './phoneNavBar/Toggler';
 
 function Header() {
   return (
