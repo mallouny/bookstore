@@ -36,5 +36,14 @@
                 "requiresOnly": false
             }
         ]
+        // "import/no-unresolved": [
+        //     2,
+        //     {
+        //         "caseSensitive": false
+        //     }
+        // ]
     }
+    // "settings": {
+    //     "import/resolver": "webpack"
+    // }
 }
