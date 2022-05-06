@@ -15,12 +15,14 @@ function Slider() {
   const slideRef                        = useRef();
 
   const removeAnimation = () => {
+    // @ts-ignore
     slideRef.current.classList.remove('fade-anim');
   };
 
   const handleOnNextClick = () => {
     count = (count + 1) % promoProduct.length;
     setCurrentIndex(count);
+    // @ts-ignore
     slideRef.current.classList.add('fade-anim');
   };
 
@@ -34,8 +36,11 @@ function Slider() {
   };
 
   useEffect(() => {
+    // @ts-ignore
     slideRef.current.addEventListener('animationend', removeAnimation);
+    // @ts-ignore
     slideRef.current.addEventListener('mouseenter', pauseSlider);
+    // @ts-ignore
     slideRef.current.addEventListener('mouseleave', startSlider);
     startSlider();
   }, []);
@@ -44,6 +49,7 @@ function Slider() {
     const promoProductLenght = promoProduct.length;
     count                    = (currentIndex + promoProductLenght - 1) % promoProductLenght;
     setCurrentIndex(count);
+    // @ts-ignore
     slideRef.current.classList.add('fade-anim');
   };
 
@@ -59,7 +65,7 @@ function Slider() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 opacity-60"
+              className="h-6 w-6 opacity-40"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -78,7 +84,7 @@ function Slider() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 opacity-60"
+              className="h-6 w-6 opacity-40"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

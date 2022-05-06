@@ -1,9 +1,9 @@
 import React from 'react';
 
-function HitsSales() {
+function HowToOrder() {
   return (
     <div />
   );
 }
 
-export default HitsSales;
+export default HowToOrder;

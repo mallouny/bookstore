@@ -8,14 +8,7 @@ import { Toggler }    from './phoneNavBar/Toggler';
 
 function Header() {
   return (
-    <div className="h-full w-full absolute">
-      <div className="w-full xl:hidden h-full absolute z-40">
-        <div
-          className="bg-gray-800 opacity-50 inset-0 fixed w-full h-full"
-          onClick="sidebarHandler(false)"
-        />
-      </div>
-
+    <div className="w-full sticky top-0 z-50">
       <nav className="w-full mx-auto bg-white shadow">
         <div className="container px-6 justify-between h-16 flex items-center lg:items-stretch mx-auto">
           <div className="h-full flex items-center">

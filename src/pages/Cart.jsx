@@ -1,9 +1,9 @@
 import React from 'react';
 
-function HitsSales() {
+function Cart() {
   return (
     <div />
   );
 }
 
-export default HitsSales;
+export default Cart;
